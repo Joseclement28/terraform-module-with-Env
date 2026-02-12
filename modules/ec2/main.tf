@@ -5,7 +5,7 @@ resource "aws_instance" "this" {
   private_ip                 = var.private_ip
   key_name                   = var.key_name
   vpc_security_group_ids     = [var.security_group_id]
-  associate_pubic_ip_address = true
+  associate_public_ip_address = true
 
   user_data = <<-EOF
     #!/bin/bash
