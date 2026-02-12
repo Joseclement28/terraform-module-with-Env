@@ -49,7 +49,7 @@ pipeline {
 
         stage('Approve START PROD'){
             steps{
-                input message: ('Approve start of PROD Deployment?'), ok:'Start Prod'
+                input message: 'Approve start of PROD Deployment?', ok:'Start Prod'
             }
         }
 
