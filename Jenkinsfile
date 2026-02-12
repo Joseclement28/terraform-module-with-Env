@@ -71,14 +71,14 @@ pipeline {
 
         stage('Approve PROD Apply'){
             steps{
-                input message 'Approve Terraform APPLY for Prod?', ok: 'Apply'
+                input message: 'Approve Terraform APPLY for Prod?', ok: 'Apply'
             }
         }
 
         stage('Terraform Apply - PROD'){
             steps{
                 dir('envs/prod'){
-                    sh 'terraform apply -auto approve'
+                    sh 'terraform apply -auto-approve'
                 }
             }
         }
