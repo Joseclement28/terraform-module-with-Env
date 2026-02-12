@@ -1,6 +1,6 @@
 resource "aws_security_group" "this" {
   name        = "web-app"
-  vpc_id      = aws_vpc.this.id
+  vpc_id      = var.vpc_id
 
 
   dynamic "ingress" {
