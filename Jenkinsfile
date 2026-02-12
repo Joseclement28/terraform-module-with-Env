@@ -17,16 +17,26 @@ pipeline {
 
         stage('Terraform Init - Dev'){
             steps{
-                dir('envs/dev'){
-                    sh 'terraform init -reconfigure'
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'aws-creds'
+                ]]) {
+                    dir('envs/dev'){
+                        sh 'terraform init -reconfigure'
+                    }
                 }
             }
         }
 
         stage('Terraform Plan - Dev'){
             steps{
-                dir('envs/dev'){
-                    sh 'terraform plan'
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'aws-creds'
+                ]]) {
+                    dir('envs/dev'){
+                        sh 'terraform plan'
+                    }
                 }
             }
         }
@@ -39,8 +49,13 @@ pipeline {
 
         stage('Terraform Apply Dev'){
             steps{
-                dir('envs/dev'){
-                    sh 'terraform apply -auto-approve'
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'aws-creds'
+                ]]) {
+                    dir('envs/dev'){
+                        sh 'terraform apply -auto-approve'
+                    }    
                 }
             }
         }
@@ -55,16 +70,26 @@ pipeline {
 
         stage('Terraform Init - PROD'){
             steps{
-                dir('envs/prod'){
-                    sh 'terraform init -reconfigure'
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'aws-creds'
+                ]]) {
+                    dir('envs/prod'){
+                        sh 'terraform init -reconfigure'
+                    }
                 }
             }
         }
 
         stage('Terraform Plan - PROD'){
             steps{
-                dir('envs/prod'){
-                    sh 'terraform plan'
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'aws-creds'
+                ]]) {
+                    dir('envs/prod'){
+                        sh 'terraform plan'
+                    }
                 }
             }
         }
@@ -77,8 +102,13 @@ pipeline {
 
         stage('Terraform Apply - PROD'){
             steps{
-                dir('envs/prod'){
-                    sh 'terraform apply -auto-approve'
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'aws-creds'
+                ]]) {
+                    dir('envs/prod'){
+                        sh 'terraform apply -auto-approve'
+                    }
                 }
             }
         }
