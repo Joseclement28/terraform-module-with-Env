@@ -18,7 +18,7 @@ resource "aws_security_group" "this" {
     content {
       from_port   = egress.value.from_port
       to_port     = egress.value.to_port
-      protocol    = engress.value.protocol
+      protocol    = egress.value.protocol
       cidr_blocks = egress.value.cidr_blocks
     }
   }
