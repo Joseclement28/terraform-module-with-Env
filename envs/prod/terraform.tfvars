@@ -4,10 +4,10 @@ vpc_name        = "dev-vpc"
 subnet_cidr     = "192.168.10.0/24"
 ami_id          = "ami-0f5ee92e2d63afc18"
 instance_type   = "t2.micro"
-private_ip      = "192.169.10.100"
+private_ip      = "192.168.10.100"
 key_name        = "production"
 instance_name   = "dev-web"
-ebs_size        = "15"
+ebs_size        = "10"
 
 allowed_ingress = [
     {

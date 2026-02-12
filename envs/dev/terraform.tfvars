@@ -7,7 +7,7 @@ instance_type   = "t2.micro"
 private_ip      = "192.168.10.100"
 key_name        = "production"
 instance_name   = "dev-web"
-ebs_size        = "15"
+ebs_size        = "10"
 
 allowed_ingress = [
     {
